@@ -6,7 +6,8 @@
 
 ## Homework
 * do while
-``
+
+``c
 else if(tk == Do){
     next();
     a = e + 1;
@@ -23,7 +24,8 @@ else if(tk == Do){
 
 ``
 * for
-``
+
+``c
   else if(tk == For){
 	next();
  	if (tk == '(') next(); else { printf("%d: open paren expected\n", line); exit(-1); }
