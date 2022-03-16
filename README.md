@@ -7,7 +7,7 @@
 ## Homework
 * do while
 
-``c
+```c
 else if(tk == Do){
     next();
     a = e + 1;
@@ -22,10 +22,10 @@ else if(tk == Do){
     }else{	printf("%d: synatx error\n",line); exit(-1);}
   }
 
-``
+```
 * for
 
-``c
+```c
   else if(tk == For){
 	next();
  	if (tk == '(') next(); else { printf("%d: open paren expected\n", line); exit(-1); }
@@ -42,7 +42,7 @@ else if(tk == Do){
 	*++e = JMP; *++e = (int)a;
     	*b = (int)(e + 1);
   }
-``
+```
 ### result
 ![image](https://user-images.githubusercontent.com/79678055/158593181-eb82e195-33a1-40c9-9bfc-0bed68eb6bbf.png)
 
