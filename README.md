@@ -4,6 +4,16 @@
 * 原專案 -- https://github.com/rswier/c4
 * 修改者 -- 陳鍾誠
 
+## Homework
+* do while
+``
+``
+* for
+``
+``
+### result
+![image](https://user-images.githubusercontent.com/79678055/158593181-eb82e195-33a1-40c9-9bfc-0bed68eb6bbf.png)
+
 ## 使用方式
 
 ```
