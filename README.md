@@ -26,21 +26,25 @@ else if(tk == Do){
 * for
 
 ```c
-  else if(tk == For){
+ else if(tk == For){
+	int *c, *d;
 	next();
  	if (tk == '(') next(); else { printf("%d: open paren expected\n", line); exit(-1); }
 	expr(Assign);
 	if(tk == ';')next();else {printf("%d: semicolon expected\n", line); exit(-1);}
-	a = e + 1;
+	a = e+1;	
 	expr(Assign);
 	*++e = BZ; b = ++e;
 	if(tk == ';')next();else {printf("%d: semicolon expected\n", line); exit(-1);}
-	
+	*++e = JMP; c = ++e;
+	d = e+1;
 	expr(Assign);
-	if (tk == ')') next(); else { printf("%d: close paren expected\n", line); exit(-1); }
-	stmt();
 	*++e = JMP; *++e = (int)a;
-    	*b = (int)(e + 1);
+	if (tk == ')') next(); else { printf("%d: close paren expected\n", line); exit(-1); }
+	*c = (int)(e+1);
+	stmt();
+	*++e = JMP; *++e = (int)d;
+    	*b = (int)(e+1);
   }
 ```
 * test
@@ -69,8 +73,27 @@ int main(){
 }
 ```
 ### result
-![image](https://user-images.githubusercontent.com/79678055/158593181-eb82e195-33a1-40c9-9bfc-0bed68eb6bbf.png)
+```
+./c6 test/doWhileAndFor.c
+do while: s=1 i=1
+do while: s=2 i=2
+do while: s=4 i=3
+do while: s=7 i=4
+do while: s=11 i=5
+do while: s=16 i=6
+do while: s=22 i=7
+do while: s=29 i=8
+do while: s=37 i=9
+do while: s=46 i=10
+s=46 i=10
+for: s=46 i=1
+for: s=48 i=3
+for: s=52 i=5
+for: s=58 i=7
+for: s=66 i=9
+exit(0) cycle = 583
 
+```
 ## 使用方式
 
 ```
