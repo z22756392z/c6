@@ -349,20 +349,24 @@ void stmt() {
     }else{	printf("%d: synatx error\n",line); exit(-1);}
   }
   else if(tk == For){
+	int *c, *d;
 	next();
  	if (tk == '(') next(); else { printf("%d: open paren expected\n", line); exit(-1); }
 	expr(Assign);
 	if(tk == ';')next();else {printf("%d: semicolon expected\n", line); exit(-1);}
-	a = e + 1;
+	a = e+1;	
 	expr(Assign);
 	*++e = BZ; b = ++e;
 	if(tk == ';')next();else {printf("%d: semicolon expected\n", line); exit(-1);}
-	
+	*++e = JMP; c = ++e;
+	d = e+1;
 	expr(Assign);
-	if (tk == ')') next(); else { printf("%d: close paren expected\n", line); exit(-1); }
-	stmt();
 	*++e = JMP; *++e = (int)a;
-    	*b = (int)(e + 1);
+	if (tk == ')') next(); else { printf("%d: close paren expected\n", line); exit(-1); }
+	*c = (int)(e+1);
+	stmt();
+	*++e = JMP; *++e = (int)d;
+    	*b = (int)(e+1);
   }
   else if (tk == Return) { // return 語句
     next();
