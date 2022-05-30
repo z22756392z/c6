@@ -25,6 +25,8 @@ else if(tk == Do){
 ```
 * for
 
+![for](./for.png)
+
 ```c
  else if(tk == For){
 	int *c, *d;
